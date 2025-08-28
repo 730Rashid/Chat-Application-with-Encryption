@@ -1,10 +1,11 @@
-#ifndef CHATCLIENT_H
-#define CHATCLIENT_H
+#ifndef CHATCLIENT_SENDER_H
+#define CHATCLIENT_SENDER_H
 
 #include <string>
 #include <winsock2.h>
 #include <windows.h>
 #include <iostream>
+#include "MyRSA.h"
 
 #pragma comment(lib, "ws2_32.lib")
 
@@ -19,7 +20,8 @@ private:
     std::string serverIP;
     int serverPort;
     WSADATA wsaData;
+    MyRSA rsa;
+    std::string publicKey;
 };
 
-#endif // SECURE_CHAT_CLIENT_H
-
+#endif // CHATCLIENT_SENDER_H
