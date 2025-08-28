@@ -6,8 +6,8 @@
 #include <windows.h>
 #include <thread>
 #include <iostream>
+#include "MyRSA.h"
 
-// Link with the Winsock library
 #pragma comment(lib, "ws2_32.lib")
 
 class ChatServer {
@@ -21,9 +21,10 @@ private:
     std::string serverIP;
     int serverPort;
     WSADATA wsaData;
+    MyRSA rsa;
+    std::string privateKey;
 
     void handleClient(SOCKET clientSocket);
 };
 
 #endif // CHATSERVER_H
-

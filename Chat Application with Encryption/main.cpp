@@ -10,8 +10,10 @@ int main() {
     ChatServer server(ip, port);
     std::thread serverThread(&ChatServer::start, &server);
 
+    // Allow server to start
+    std::this_thread::sleep_for(std::chrono::seconds(1));
+
     ChatClient client(ip, port);
-    std::this_thread::sleep_for(std::chrono::seconds(1));  // Allow server to start
     client.connectToServer();
 
     serverThread.join();  // Wait for server to finish
